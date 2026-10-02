@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>⚠ SISTEMA COMPROMETIDO ⚠</title>
+</head>
+<body>
+
+<script>
+(function(){
+try{
+/* ============================================================
+   PRANK v9.0 — APOCALYPSE EDITION
+   HTML + CSS + JS embebidos · 23 fases · Limpieza total
+   Escapable: F5 o 2×Esc. No persiste. No daña nada.
+   ============================================================ */
+
+// ---------- 0. HELPERS ----------
+const $ = (r, s) => { try { return r.querySelector(s); } catch(e){ return null; } };
+const $$ = (r, s) => { try { return r.querySelectorAll(s); } catch(e){ return []; } };
+const crea = (r, tag, css, html) => {
+  try {
+    const el = r.createElement(tag);
+    if (css) el.style.cssText = css;
+    if (html) el.innerHTML = html;
+    return el;
+  } catch(e){ return null; }
+};
+const safe = (fn, fb) => { try { return fn(); } catch(e){ return fb; } };
+
+// ---------- 1. ROOTS ----------
+const roots = [], wins = [];
+const cands = [window];
+safe(() => { if (window.top && window.top !== window) cands.push(window.top); });
+safe(() => { if (window.parent && window.parent !== window) cands.push(window.parent); });
+safe(() => { if (window.opener && !window.opener.closed) cands.push(window.opener); });
+for (const w of cands) {
+  safe(() => {
+    if (w && w.document && w.document.documentElement) {
+      if (!roots.includes(w.document)) { roots.push(w.document); wins.push(w); }
+    }
+  });
+}
+if (!roots.length) { roots.push(document); wins.push(window); }
+const root = roots[roots.length - 1] || document;
+const W = wins[wins.length - 1] || window;
+
+// ---------- 2. LIMPIEZA AGRESIVA ----------
+for (const r of roots) {
+  safe(() => {
+    // IDs exactos de versiones previas
+    ['__pv9','__pv9style','__pv8','__pv8style','__pv7','__pv7style',
+     '__prankv8','__prankv8style','__prankv7','__prankv7style',
+     '__prankv6','__prankv6style','__prankv5','__prankv5style'].forEach(id => {
+      const el = r.getElementById(id);
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    });
+    // Cualquier elemento con clase __v8*, __p7*, etc.
+    ['[class^="__v8"]','[class^="__p7"]','[class^="__p6"]','[class^="__p5"]','[id^="__pv"]','[id^="__p7"]','[id^="__p6"]','[id^="__p5"]'].forEach(sel => {
+      try { r.querySelectorAll(sel).forEach(el => { if (el.parentNode) el.parentNode.removeChild(el); }); } catch(e){}
+    });
+    // Estilos globales de versiones previas
+    r.querySelectorAll('style').forEach(s => {
+      try {
+        if (s.id && /__(pv|prank)/i.test(s.id)) s.remove();
+        else if (s.textContent && s.textContent.includes('__p7') || s.textContent && s.textContent.includes('__p6') || s.textContent && s.textContent.includes('__p5')) s.remove();
+      } catch(e){}
+    });
+    // Emojis voladores o overlays residuales
+    r.querySelectorAll('div').forEach(d => {
+      try {
+        const st = d.getAttribute('style') || '';
+        if (st.includes('position:fixed') && st.includes('z-index:99999') && d.textContent.length <= 3) d.remove();
+      } catch(e){}
+    });
+  });
+}
+
+// ---------- 3. CSS ----------
+const CSS = `
+#__pv9, #__pv9 * { box-sizing:border-box !important; margin:0 !important; padding:0 !important;
+  font-family:'Courier New',monospace !important; user-select:none !important;
+  -webkit-user-select:none !important; -webkit-tap-highlight-color:transparent !important; }
+html,body{overflow:hidden !important;height:100% !important;width:100% !important;background:#000 !important;}
+#__pv9{position:fixed !important;inset:0 !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;
+  width:100vw !important;height:100vh !important;z-index:2147483647 !important;
+  background:#000 !important;color:#0f0 !important;overflow:hidden !important;cursor:none !important;
+  perspective:1200px !important;display:block !important;}
+#__pv9canvas{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;z-index:1 !important;opacity:0.5 !important;}
+.__v9scan{position:absolute !important;inset:0 !important;z-index:2 !important;pointer-events:none !important;
+  background:repeating-linear-gradient(0deg,rgba(0,255,0,0.09) 0px,rgba(0,255,0,0.09) 1px,transparent 1px,transparent 3px);
+  animation:__v9scan 5s linear infinite !important;}
+@keyframes __v9scan{from{background-position:0 0}to{background-position:0 100vh}}
+.__v9vig{position:absolute !important;inset:0 !important;z-index:3 !important;pointer-events:none !important;
+  background:radial-gradient(circle,transparent 30%,rgba(0,0,0,0.95) 100%) !important;}
+.__v9content{position:absolute !important;inset:0 !important;z-index:10 !important;
+  display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
+  text-align:center !important;padding:20px !important;overflow:hidden !important;}
+.__v9phase{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;text-align:center !important;
+  padding:20px !important;animation:__v9fade 0.25s ease-out !important;}
+@keyframes __v9fade{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.__v9skull{font-size:110px !important;line-height:1 !important;animation:__v9pulse 0.9s infinite !important;}
+@keyframes __v9pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 25px red)}50%{transform:scale(1.18);filter:drop-shadow(0 0 50px red)}}
+.__v9glitch{font-size:40px !important;color:#f00 !important;margin:15px 0 !important;font-weight:bold !important;
+  letter-spacing:3px !important;text-shadow:2px 0 #0ff,-2px 0 #f0f !important;animation:__v9glitch 0.28s infinite !important;}
+@keyframes __v9glitch{0%{transform:translate(0)}20%{transform:translate(-4px,2px)}40%{transform:translate(4px,-2px)}
+  60%{transform:translate(-3px,-4px)}80%{transform:translate(3px,4px)}100%{transform:translate(0)}}
+.__v9sub{font-size:16px !important;color:#0f0 !important;margin:6px 0 !important;opacity:0.85 !important;}
+.__v9hint{font-size:13px !important;color:#ff0 !important;margin-top:22px !important;animation:__v9blink 0.8s infinite !important;}
+@keyframes __v9blink{50%{opacity:0}}
+.__v9log{width:100% !important;max-width:750px !important;text-align:left !important;font-size:13px !important;
+  line-height:1.5 !important;color:#0f0 !important;white-space:pre-wrap !important;word-break:break-all !important;}
+.__v9log > div{animation:__v9fade 0.12s ease-out !important;}
+.__v9bsod{position:absolute !important;inset:0 !important;background:#0078d7 !important;color:#fff !important;
+  padding:35px !important;text-align:left !important;display:flex !important;flex-direction:column !important;
+  justify-content:flex-start !important;font-family:'Segoe UI',sans-serif !important;}
+.__v9bsod .__v9face{font-size:110px !important;line-height:1 !important;margin-bottom:14px !important;}
+.__v9bsod h2{font-size:20px !important;font-weight:normal !important;margin:10px 0 !important;line-height:1.4 !important;}
+.__v9pct{font-size:56px !important;font-weight:bold !important;margin:20px 0 !important;}
+.__v9bsod .__v9small{font-size:12px !important;opacity:0.85 !important;margin-top:24px !important;line-height:1.5 !important;}
+.__v9cam{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#f00 !important;}
+.__v9cam .__v9dot{width:28px !important;height:28px !important;border-radius:50% !important;background:#f00 !important;
+  margin-bottom:16px !important;animation:__v9blink 0.5s infinite !important;box-shadow:0 0 30px red !important;}
+.__v9cam h2{font-size:28px !important;margin:10px 0 !important;}
+.__v9cam p{font-size:15px !important;color:#fff !important;opacity:0.75 !important;margin:5px 0 !important;}
+.__v9alarma{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#f00 !important;color:#fff !important;
+  animation:__v9flash 0.3s infinite !important;}
+@keyframes __v9flash{0%,100%{background:#f00}50%{background:#000}}
+.__v9alarma h1{font-size:64px !important;letter-spacing:4px !important;animation:__v9pulse 0.5s infinite !important;}
+.__v9alarma p{font-size:18px !important;margin-top:14px !important;}
+.__v9cuenta{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#f00 !important;}
+.__v9cuenta .__v9num{font-size:200px !important;font-weight:bold !important;line-height:1 !important;
+  animation:__v9zoom 1s infinite !important;}
+@keyframes __v9zoom{0%{transform:scale(0.8);opacity:0}50%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:0.6}}
+.__v9cuenta p{font-size:18px !important;color:#fff !important;margin-top:14px !important;opacity:0.7 !important;}
+.__v9preguntar{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;
+  font-family:monospace !important;padding:20px !important;}
+.__v9preguntar h1{font-size:26px !important;color:#0f0 !important;margin-bottom:12px !important;text-align:center !important;}
+.__v9preguntar h2{font-size:16px !important;color:#ff0 !important;margin:8px 0 !important;text-align:center !important;}
+.__v9preguntar input{padding:12px 16px !important;font-size:18px !important;width:85% !important;max-width:380px !important;
+  background:#111 !important;color:#0f0 !important;border:2px solid #0f0 !important;font-family:monospace !important;
+  text-align:center !important;outline:none !important;}
+.__v9preguntar button{margin-top:16px !important;padding:12px 32px !important;font-size:18px !important;
+  background:#0f0 !important;color:#000 !important;border:none !important;font-weight:bold !important;cursor:pointer !important;}
+.__v9preguntar p{color:#888 !important;margin-top:12px !important;font-size:13px !important;text-align:center !important;}
+.__v9tierna{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;text-align:center !important;padding:25px !important;
+  background:linear-gradient(135deg,#ffb6c1,#ff69b4,#ffc0cb) !important;color:#fff !important;
+  animation:__v9fade 0.4s ease-out !important;}
+.__v9tierna .__v9hearts{font-size:70px !important;animation:__v9pulse 1.2s infinite !important;}
+.__v9tierna h1{font-size:30px !important;margin:16px 0 !important;color:#fff !important;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.3) !important;font-family:'Segoe UI',sans-serif !important;}
+.__v9tierna h2{font-size:20px !important;margin:10px 0 !important;color:#fff !important;
+  font-family:'Segoe UI',sans-serif !important;}
+.__v9tierna p{font-size:16px !important;margin:6px 0 !important;color:#fff !important;
+  font-family:'Segoe UI',sans-serif !important;opacity:0.9 !important;}
+.__v9click{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;padding:15px !important;}
+.__v9click h1{font-size:24px !important;color:#f00 !important;margin-bottom:10px !important;text-align:center !important;}
+.__v9click h2{font-size:14px !important;color:#ff0 !important;margin:6px 0 !important;text-align:center !important;}
+.__v9click .__v9timer{font-size:68px !important;font-weight:bold !important;color:#f00 !important;
+  animation:__v9pulse 0.5s infinite !important;margin:10px 0 !important;}
+.__v9click .__v9contador{font-size:30px !important;color:#0f0 !important;margin:8px 0 !important;font-weight:bold !important;}
+.__v9click .__v9meta{font-size:14px !important;color:#888 !important;}
+.__v9barra{width:90% !important;max-width:480px !important;height:24px !important;background:#222 !important;
+  border:2px solid #0f0 !important;margin:14px 0 !important;overflow:hidden !important;}
+.__v9barra > div{height:100% !important;background:linear-gradient(90deg,#0f0,#ff0,#f00) !important;
+  width:0% !important;transition:width 0.1s !important;}
+.__v9boton{padding:18px 40px !important;font-size:22px !important;font-weight:bold !important;
+  background:#0f0 !important;color:#000 !important;border:none !important;border-radius:10px !important;
+  cursor:pointer !important;margin:10px 0 !important;animation:__v9pulse 0.6s infinite !important;}
+.__v9fail{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#f00 !important;padding:20px !important;}
+.__v9fail h1{font-size:40px !important;margin-bottom:14px !important;animation:__v9glitch 0.2s infinite !important;}
+.__v9fail p{font-size:18px !important;color:#fff !important;margin:6px 0 !important;}
+.__v9fail .__v9grande{font-size:68px !important;margin:14px 0 !important;}
+.__v9captcha{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#f9f9f9 !important;color:#222 !important;
+  font-family:sans-serif !important;padding:20px !important;}
+.__v9captcha .__v9cbox{background:#fff !important;border:2px solid #ddd !important;border-radius:8px !important;
+  padding:24px !important;max-width:380px !important;text-align:left !important;box-shadow:0 4px 12px rgba(0,0,0,0.1) !important;}
+.__v9captcha h3{color:#222 !important;font-size:17px !important;margin-bottom:16px !important;}
+.__v9captcha label{display:flex !important;align-items:center !important;gap:10px !important;
+  padding:12px !important;border:2px solid #ddd !important;border-radius:6px !important;cursor:pointer !important;
+  font-size:15px !important;background:#fff !important;color:#222 !important;}
+.__v9captcha input{width:20px !important;height:20px !important;}
+.__v9captcha p{color:#666 !important;font-size:12px !important;margin-top:10px !important;}
+.__v9escribir{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;
+  font-family:monospace !important;padding:20px !important;}
+.__v9escribir h1{font-size:24px !important;color:#f00 !important;margin-bottom:14px !important;text-align:center !important;}
+.__v9escribir input{padding:12px 16px !important;font-size:18px !important;width:85% !important;max-width:380px !important;
+  background:#111 !important;color:#0f0 !important;border:2px solid #0f0 !important;font-family:monospace !important;
+  text-align:center !important;outline:none !important;}
+.__v9escribir p{color:#ff0 !important;margin-top:12px !important;font-size:13px !important;text-align:center !important;}
+.__v9carga{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;}
+.__v9carga h1{font-size:22px !important;margin-bottom:14px !important;text-align:center !important;}
+.__v9carga .__v9spin{width:80px !important;height:80px !important;border:8px solid #333 !important;
+  border-top-color:#0f0 !important;border-radius:50% !important;animation:__v9spin 1s linear infinite !important;margin:14px 0 !important;}
+@keyframes __v9spin{to{transform:rotate(360deg)}}
+.__v9carga .__v9puntos{font-size:16px !important;animation:__v9blink 1s infinite !important;}
+.__v9shutdown{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#fff !important;
+  font-family:'Segoe UI',sans-serif !important;}
+.__v9shutdown h1{font-size:30px !important;margin-bottom:20px !important;color:#fff !important;}
+.__v9shutdown .__v9num2{font-size:170px !important;font-weight:100 !important;color:#fff !important;}
+.__v9descarga{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;padding:15px !important;}
+.__v9descarga h1{font-size:22px !important;margin-bottom:12px !important;color:#f00 !important;text-align:center !important;}
+.__v9descarga .__v9file{font-size:16px !important;margin:8px 0 !important;color:#ff0 !important;}
+.__v9descarga .__v9b2{width:90% !important;max-width:480px !important;height:32px !important;
+  background:#222 !important;border:2px solid #f00 !important;margin:14px 0 !important;position:relative !important;overflow:hidden !important;}
+.__v9descarga .__v9b2 > div{height:100% !important;background:linear-gradient(90deg,#f00,#ff0) !important;width:0% !important;transition:width 0.2s !important;}
+.__v9descarga .__v9b2 > span{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;
+  justify-content:center !important;color:#fff !important;font-weight:bold !important;font-size:14px !important;}
+/* NUEVAS FASES */
+.__v9dispositivos{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;padding:20px !important;}
+.__v9dispositivos h1{font-size:24px !important;color:#f00 !important;margin-bottom:16px !important;text-align:center !important;}
+.__v9dispositivos .__v9lista{background:#111 !important;border:1px solid #0f0 !important;padding:14px 18px !important;
+  max-width:520px !important;width:100% !important;font-size:13px !important;line-height:1.8 !important;}
+.__v9dispositivos .__v9lista > div{padding:6px 0 !important;border-bottom:1px solid #222 !important;}
+.__v9dispositivos .__v9lista > div:last-child{border-bottom:none !important;}
+.__v9dispositivos .__v9online{color:#f00 !important;font-weight:bold !important;}
+.__v9bios{position:absolute !important;inset:0 !important;background:#000 !important;color:#aaa !important;
+  font-family:'Courier New',monospace !important;padding:30px !important;font-size:13px !important;line-height:1.7 !important;}
+.__v9bios h2{color:#0f0 !important;font-size:15px !important;margin:12px 0 !important;}
+.__v9bios .__v9biosline{animation:__v9fade 0.15s ease-out !important;}
+.__v9recuperar{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;padding:20px !important;}
+.__v9recuperar h1{font-size:22px !important;color:#ff0 !important;margin-bottom:14px !important;text-align:center !important;}
+.__v9recuperar .__v9files{width:90% !important;max-width:520px !important;height:200px !important;
+  background:#0a0a0a !important;border:1px solid #0f0 !important;padding:10px !important;overflow:hidden !important;
+  font-size:12px !important;line-height:1.6 !important;text-align:left !important;}
+.__v9fbi{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#0a0a2a !important;color:#fff !important;
+  font-family:'Segoe UI',sans-serif !important;padding:30px !important;text-align:center !important;}
+.__v9fbi .__v9avatar{width:140px !important;height:140px !important;border-radius:50% !important;
+  background:#1a1a4a !important;display:flex !important;align-items:center !important;justify-content:center !important;
+  font-size:70px !important;margin-bottom:20px !important;animation:__v9pulse 1.5s infinite !important;}
+.__v9fbi h1{font-size:26px !important;margin:12px 0 !important;}
+.__v9fbi h2{font-size:18px !important;color:#0cf !important;margin:8px 0 !important;}
+.__v9fbi p{font-size:14px !important;color:#aaa !important;margin:6px 0 !important;}
+.__v9fbi .__v9llamar{margin-top:20px !important;padding:14px 30px !important;font-size:20px !important;
+  background:#0c0 !important;color:#fff !important;border:none !important;border-radius:50px !important;
+  cursor:pointer !important;font-weight:bold !important;animation:__v9pulse 0.7s infinite !important;}
+.__v9ubi{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#f00 !important;padding:20px !important;}
+.__v9ubi h1{font-size:26px !important;margin-bottom:16px !important;text-align:center !important;}
+.__v9ubi .__v9mapa{width:90% !important;max-width:520px !important;height:220px !important;
+  background:radial-gradient(circle at 60% 40%,#003 0%,#000 70%) !important;border:2px solid #f00 !important;
+  position:relative !important;overflow:hidden !important;margin:14px 0 !important;}
+.__v9ubi .__v9pin{position:absolute !important;left:60% !important;top:40% !important;font-size:36px !important;
+  animation:__v9pulse 0.8s infinite !important;}
+.__v9ubi p{font-size:14px !important;color:#fff !important;margin:6px 0 !important;}
+.__v9ubi .__v9coord{font-size:16px !important;color:#0f0 !important;font-weight:bold !important;}
+.__v9pass{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;
+  font-family:monospace !important;padding:20px !important;text-align:center !important;}
+.__v9pass h1{font-size:22px !important;color:#f00 !important;margin-bottom:14px !important;}
+.__v9pass .__v9campo{font-size:20px !important;background:#111 !important;color:#0f0 !important;
+  padding:14px 20px !important;border:2px solid #0f0 !important;margin:10px 0 !important;
+  min-width:280px !important;text-align:left !important;font-family:monospace !important;}
+.__v9pass .__v9caret{animation:__v9blink 0.5s infinite !important;}
+.__v9msgs{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#000 !important;color:#0f0 !important;
+  font-family:monospace !important;padding:20px !important;}
+.__v9msgs h1{font-size:22px !important;color:#f00 !important;margin-bottom:14px !important;text-align:center !important;}
+.__v9msgs .__v9chat{width:90% !important;max-width:520px !important;height:220px !important;
+  background:#0a0a0a !important;border:1px solid #0f0 !important;padding:12px !important;overflow:hidden !important;
+  font-size:13px !important;line-height:1.6 !important;text-align:left !important;}
+.__v9msgs .__v9enviado{color:#0cf !important;animation:__v9fade 0.15s ease-out !important;}
+.__v9bloqueada{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;background:#111 !important;color:#fff !important;
+  font-family:'Segoe UI',sans-serif !important;padding:30px !important;text-align:center !important;}
+.__v9bloqueada .__v9candado{font-size:80px !important;margin-bottom:20px !important;animation:__v9pulse 1s infinite !important;}
+.__v9bloqueada h1{font-size:26px !important;margin:12px 0 !important;color:#f00 !important;}
+.__v9bloqueada p{font-size:15px !important;color:#ccc !important;margin:6px 0 !important;}
+.__v9final{position:absolute !important;inset:0 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;text-align:center !important;padding:25px !important;
+  background:#000 !important;color:#0ff !important;}
+.__v9final .__v9clown{font-size:110px !important;line-height:1 !important;}
+.__v9final h1{font-size:52px !important;color:#0f0 !important;margin:16px 0 !important;text-shadow:0 0 25px #0f0 !important;}
+.__v9final h2{font-size:22px !important;color:#fff !important;margin:8px 0 !important;}
+.__v9final p{font-size:14px !important;color:#888 !important;margin:5px 0 !important;max-width:520px !important;}
+.__v9final .__v9end{font-size:16px !important;color:#ff0 !important;margin-top:20px !important;}
+.__v9final .__v9stats{font-size:13px !important;color:#f0f !important;margin-top:10px !important;}
+.__v9footer{position:absolute !important;bottom:10px !important;right:15px !important;font-size:11px !important;
+  color:#0f0 !important;opacity:0.4 !important;z-index:50 !important;}
+.__v9shake{animation:__v9shake 0.06s infinite !important;}
+@keyframes __v9shake{0%,100%{transform:translate(0,0) rotate(0)}20%{transform:translate(-10px,7px) rotate(-2.5deg)}
+  40%{transform:translate(10px,-7px) rotate(2.5deg)}60%{transform:translate(-7px,-10px) rotate(-1.5deg)}
+  80%{transform:translate(7px,10px) rotate(1.5deg)}}
+.__v9invert{filter:invert(1) hue-rotate(180deg) contrast(1.3) !important;}
+.__v9wobble{animation:__v9wobble 6s ease-in-out infinite !important;transform-style:preserve-3d !important;}
+@keyframes __v9wobble{0%,100%{transform:rotateY(0) rotateX(0)}25%{transform:rotateY(3deg) rotateX(-2deg)}
+  50%{transform:rotateY(0) rotateX(2deg)}75%{transform:rotateY(-3deg) rotateX(-1deg)}}
+.__v9noesc{position:fixed !important;inset:0 !important;z-index:2147483647 !important;
+  background:rgba(0,0,0,0.88) !important;color:#f00 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;text-align:center !important;padding:40px !important;
+  font-family:monospace !important;animation:__v9fade 0.2s ease-out !important;}
+.__v9noesc h1{font-size:52px !important;color:#f00 !important;text-shadow:0 0 30px red !important;
+  animation:__v9pulse 0.4s infinite !important;margin-bottom:16px !important;}
+.__v9noesc p{font-size:18px !important;color:#ff0 !important;margin:6px 0 !important;}
+.__v9glob{position:fixed !important;top:8px !important;left:8px !important;z-index:2147483646 !important;
+  color:#0f0 !important;font:11px monospace !important;opacity:0.55 !important;}
+`;
+
+// ---------- 4. HTML ----------
+const HTML = `
+<div id="__pv9">
+  <canvas id="__pv9canvas"></canvas>
+  <div class="__v9scan"></div>
+  <div class="__v9vig"></div>
+  <div class="__v9content" id="__pv9content">
+    <div class="__v9phase">
+      <div class="__v9skull">💀</div>
+      <h1 class="__v9glitch">SISTEMA COMPROMETIDO</h1>
+      <p class="__v9sub">Esperando interacción...</p>
+    </div>
+  </div>
+  <div class="__v9footer" id="__pv9footer">v9.0 · apocalypse edition</div>
+</div>
+<div class="__v9glob" id="__pv9glob">v9.0</div>
+`;
+
+function inyectarEn(r) {
+  try {
+    if (!r.getElementById('__pv9style')) {
+      const s = r.createElement('style');
+      s.id = '__pv9style'; s.textContent = CSS;
+      (r.head || r.documentElement).appendChild(s);
+    }
+    if (!r.getElementById('__pv9')) {
+      const w = r.createElement('div');
+      w.innerHTML = HTML;
+      while (w.firstChild) r.documentElement.appendChild(w.firstChild);
+    }
+    return {
+      app: r.getElementById('__pv9'),
+      canvas: r.getElementById('__pv9canvas'),
+      content: r.getElementById('__pv9content'),
+      footer: r.getElementById('__pv9footer'),
+      glob: r.getElementById('__pv9glob')
+    };
+  } catch(e){ return null; }
+}
+
+let UI = inyectarEn(root);
+for (let i = 0; i < roots.length; i++) if (roots[i] !== root) inyectarEn(roots[i]);
+if (!UI) UI = inyectarEn(document);
+const app = UI.app, canvas = UI.canvas, content = UI.content, footer = UI.footer, glob = UI.glob;
+if (!app) return;
+
+// ---------- 5. MATRIX ----------
+safe(() => {
+  const c2 = canvas.getContext('2d');
+  let Wd = canvas.width = innerWidth, Hd = canvas.height = innerHeight;
+  const cols = Math.floor(Wd/16);
+  const drops = new Array(cols).fill(0).map(() => Math.random()*Hd);
+  const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+  setInterval(() => safe(() => {
+    c2.fillStyle = Math.random() < 0.9 ? 'rgba(0,0,0,0.08)' : 'rgba(0,0,0,0.03)';
+    c2.fillRect(0, 0, Wd, Hd);
+    c2.fillStyle = '#0f0'; c2.font = '15px monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const t = chars[Math.floor(Math.random()*chars.length)];
+      c2.fillText(t, i*16, drops[i]);
+      if (drops[i] > Hd && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += 16;
+    }
+  }), 40);
+  addEventListener('resize', () => safe(() => { Wd = canvas.width = innerWidth; Hd = canvas.height = innerHeight; }));
+});
+
+// ---------- 6. AUDIO ----------
+let ctxA = null;
+function initAudio() { safe(() => {
+  const C = W.AudioContext || W.webkitAudioContext;
+  if (!C) return;
+  ctxA = new C();
+  if (ctxA.state === 'suspended') ctxA.resume();
+}); }
+function ping(f=800, d=0.1, v=0.06, t='square') {
+  if (!ctxA) return;
+  safe(() => {
+    const o = ctxA.createOscillator(), g = ctxA.createGain();
+    o.type = t; o.frequency.value = f;
+    g.gain.setValueAtTime(v, ctxA.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctxA.currentTime + d);
+    o.connect(g).connect(ctxA.destination);
+    o.start(); o.stop(ctxA.currentTime + d);
+  });
+}
+function ruido(d=0.15, v=0.2, hp=1000) {
+  if (!ctxA) return;
+  safe(() => {
+    const buf = ctxA.createBuffer(1, ctxA.sampleRate*d, ctxA.sampleRate);
+    const da = buf.getChannelData(0);
+    for (let i = 0; i < da.length; i++) da[i] = Math.random()*2 - 1;
+    const s = ctxA.createBufferSource(); s.buffer = buf;
+    const g = ctxA.createGain();
+    g.gain.setValueAtTime(v, ctxA.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctxA.currentTime + d);
+    const f = ctxA.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = hp;
+    s.connect(f).connect(g).connect(ctxA.destination); s.start();
+  });
+}
+function sirena() {
+  if (!ctxA) return;
+  safe(() => {
+    const o = ctxA.createOscillator(), g = ctxA.createGain(); o.type = 'square';
+    const n = ctxA.currentTime;
+    o.frequency.setValueAtTime(880, n);
+    o.frequency.linearRampToValueAtTime(440, n + 0.3);
+    o.frequency.linearRampToValueAtTime(880, n + 0.6);
+    g.gain.setValueAtTime(0.12, n);
+    g.gain.linearRampToValueAtTime(0.12, n + 0.5);
+    g.gain.exponentialRampToValueAtTime(0.001, n + 0.6);
+    o.connect(g).connect(ctxA.destination); o.start(); o.stop(n + 0.6);
+  });
+}
+function denegado() {
+  ping(220, 0.15, 0.15, 'square');
+  setTimeout(() => ping(180, 0.25, 0.15, 'square'), 100);
+  setTimeout(() => ping(140, 0.35, 0.15, 'square'), 220);
+}
+function voz(txt, lang='es-ES') { safe(() => {
+  if (!('speechSynthesis' in W)) return;
+  const u = new W.SpeechSynthesisUtterance(txt);
+  u.lang = lang; u.rate = 1.05; u.pitch = 0.6; u.volume = 0.95;
+  W.speechSynthesis.speak(u);
+}); }
+function vib(p) { safe(() => navigator.vibrate && navigator.vibrate(p)); }
+
+// ---------- 7. BLOQUEOS ----------
+let intentosEsc = 0;
+const MAX_ESC = 2;
+function mostrarNoEsc() {
+  safe(() => {
+    const ov = crea(root, 'div', '', `
+      <h1>😈 NO PUEDES ESCAPAR 😈</h1>
+      <p>Presiona <b>Esc</b> otra vez si te atreves...</p>
+      <p style="font-size:14px;color:#0f0;margin-top:20px;">Intentos: ${intentosEsc} / ${MAX_ESC}</p>
+    `);
+    if (!ov) return;
+    ov.className = '__v9noesc';
+    root.documentElement.appendChild(ov);
+    denegado(); voz('No puedes escapar'); vib([200,100,200,100,400]);
+    setTimeout(() => safe(() => ov.remove()), 1600);
+  });
+}
+function bloquear() { safe(() => {
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      intentosEsc++;
+      if (intentosEsc < MAX_ESC) { e.preventDefault(); e.stopPropagation(); mostrarNoEsc(); return; }
+      return;
+    }
+    if (e.key === 'F5' || (e.ctrlKey && e.key.toLowerCase() === 'r')) return;
+    if (e.ctrlKey || e.metaKey) {
+      const k = e.key.toLowerCase();
+      if (['w','t','n','f','p','s','o','j','u'].includes(k)) { e.preventDefault(); e.stopPropagation(); denegado(); return; }
+    }
+    if (['F11','F12'].includes(e.key)) { e.preventDefault(); e.stopPropagation(); denegado(); return; }
+    if ([' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Tab','PageUp','PageDown','Home','End'].includes(e.key)) {
+      e.preventDefault(); e.stopPropagation();
+    }
+  }, true);
+  root.addEventListener('contextmenu', e => e.preventDefault(), true);
+  root.addEventListener('selectstart', e => e.preventDefault(), true);
+  root.addEventListener('dragstart', e => e.preventDefault(), true);
+}); }
+function antiBlur() { safe(() => {
+  W.addEventListener('blur', () => setTimeout(() => safe(() => W.focus()), 50));
+  root.addEventListener('visibilitychange', () => { if (root.hidden) setTimeout(() => safe(() => W.focus()), 50); });
+}); }
+
+// ---------- 8. GLOBAL ----------
+let clicsTotales = 0;
+function incGlobal(n=1) {
+  clicsTotales += n;
+  if (glob) glob.textContent = 'v9.0 · clics: ' + clicsTotales.toLocaleString();
+}
+safe(() => {
+  root.addEventListener('click', () => incGlobal(1), true);
+  root.addEventListener('touchstart', () => incGlobal(1), true);
+});
+
+// ---------- 9. FASES ----------
+function setPhase(html) { safe(() => { content.innerHTML = '<div class="__v9phase">' + html + '</div>'; }); }
+
+// FASE 1: PREGUNTAR
+function fasePreguntar() {
+  setPhase(`
+    <div class="__v9preguntar">
+      <h1>🔒 VERIFICACIÓN DE IDENTIDAD</h1>
+      <h2>Escribe el nombre de tu mejor amigo:</h2>
+      <input type="text" id="__pv9nombre" placeholder="escribe aquí..." autocomplete="off">
+      <button id="__pv9btnNombre">VERIFICAR</button>
+      <p>(si no te acuerdas, prepárate...)</p>
+    </div>
+  `);
+  const inp = $ (root, '#__pv9nombre'), btn = $ (root, '#__pv9btnNombre');
+  if (!inp || !btn) { setTimeout(faseHack, 500); return; }
+  setTimeout(() => safe(() => inp.focus()), 200);
+  const verificar = () => {
+    const v = (inp.value || '').toLowerCase().trim();
+    safe(() => inp.blur());
+    if (v === 'juan') faseTierna();
+    else { denegado(); voz('Incorrecto. Comenzando hackeo'); setTimeout(faseHack, 700); }
+  };
+  btn.addEventListener('click', verificar);
+  btn.addEventListener('touchstart', (e) => { e.preventDefault(); verificar(); });
+  inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); verificar(); } });
+}
+
+// FASE 2A: TIERNA
+function faseTierna() {
+  setPhase(`
+    <div class="__v9tierna">
+      <div class="__v9hearts">💖🌸💖</div>
+      <h1>¡Si te acordaste! 🥰</h1>
+      <h2>Eres un verdadero amigo 💕</h2>
+      <p>Me alegra que te acuerdes de Juan...</p>
+      <p style="font-size:19px;margin-top:20px;font-weight:bold;">...pero te trolleo de todos modos 😈</p>
+    </div>
+  `);
+  voz('Si te acordaste. Pero te trolleo de todos modos.');
+  [523.25, 587.33, 659.25, 783.99].forEach((f, i) => setTimeout(() => ping(f, 0.3, 0.08, 'sine'), i * 130));
+  setTimeout(() => { denegado(); vib([300,100,300,100,600]); setTimeout(faseHack, 700); }, 2800);
+}
+
+// FASE 3: HACK LOG
+function faseHack() {
+  setPhase('<div class="__v9log" id="__pv9log"></div>');
+  const log = $ (root, '#__pv9log');
+  if (!log) { setTimeout(faseBSOD, 400); return; }
+  const ip = [1,2,3,4].map(() => Math.floor(Math.random()*255)).join('.');
+  const lineas = [
+    '[+] PRANK v9.0 — APOCALYPSE EDITION',
+    '[+] Iniciando exploit multi-capa...',
+    '[+] IP víctima: ' + ip,
+    '[+] Navegador: ' + navigator.userAgent.slice(0,50),
+    '[+] Resolución: ' + screen.width + 'x' + screen.height,
+    '[+] Plataforma: ' + (navigator.platform || '?'),
+    '[+] Idioma: ' + (navigator.language || '?'),
+    '[+] Núcleos CPU: ' + (navigator.hardwareConcurrency || '?'),
+    '[+] Memoria: ' + (navigator.deviceMemory || '?') + ' GB',
+    '[+] Escaneando puertos... 22, 80, 443, 3306, 8080',
+    '[+] Vulnerabilidad: CVE-2026-' + Math.floor(Math.random()*99999),
+    '[+] Payload 0x' + Math.random().toString(16).slice(2,10).toUpperCase(),
+    '[+] Escalando privilegios...',
+    '[+] Acceso ROOT concedido ✔',
+    '[+] Fotos: ' + Math.floor(Math.random()*9999),
+    '[+] Contraseñas: ' + Math.floor(Math.random()*500),
+    '[+] Conversaciones: ' + Math.floor(Math.random()*5000),
+    '[+] Subiendo a servidor remoto...',
+    '[+] Progreso: 25% ██████░░░░░░░░░░░░░░',
+    '[+] Progreso: 50% ████████████░░░░░░░░',
+    '[+] Progreso: 75% ██████████████████░░',
+    '[+] Progreso: 100% ████████████████████ ✔',
+    '[!] ⚠ INICIANDO CIFRADO DEL DISCO C: ⚠',
+    '[!] 3...','[!] 2...','[!] 1...','[!] 0...'
+  ];
+  let i = 0;
+  const t = setInterval(() => {
+    safe(() => { log.innerHTML += '<div>' + lineas[i] + '</div>'; });
+    ping(400 + Math.random()*600, 0.05, 0.04); vib(15);
+    if (++i >= lineas.length) { clearInterval(t); setTimeout(faseBSOD, 300); }
+  }, 160);
+}
+
+// FASE 4: BSOD
+function faseBSOD() {
+  setPhase(`
+    <div class="__v9bsod">
+      <div class="__v9face">:(</div>
+      <h2>Tu dispositivo encontró un problema y necesita reiniciarse.</h2>
+      <h2>Estamos recopilando información del error.</h2>
+      <div class="__v9pct" id="__pv9pct">0% completado</div>
+      <div class="__v9small">Para más información: https://www.windows.com/stopcode<br>Código: CRITICAL_PROCESS_DIED</div>
+    </div>
+  `);
+  safe(() => app.classList.add('__v9shake', '__v9wobble'));
+  const emojis = ['💀','😂','🤡','👻','🔥','☠️','😈','💣','🚨','⚠️','💥','👺'];
+  const tE = setInterval(() => safe(() => {
+    const e = crea(root, 'div', `position:fixed;left:${Math.random()*100}vw;top:${Math.random()*100}vh;font-size:${40+Math.random()*50}px;pointer-events:none;z-index:99999;`, emojis[Math.floor(Math.random()*emojis.length)]);
+    if (!e) return;
+    root.documentElement.appendChild(e);
+    setTimeout(() => safe(() => e.remove()), 1500);
+  }), 30);
+  const tS = setInterval(() => {
+    ping(80 + Math.random()*500, 0.12, 0.08, 'sawtooth');
+    if (Math.random() < 0.35) ruido(0.1, 0.15, 2000);
+    vib([100,30,100]);
+  }, 140);
+  let pct = 0;
+  const tP = setInterval(() => safe(() => {
+    pct += Math.random()*9; if (pct > 99) pct = 0;
+    const el = $ (root, '#__pv9pct');
+    if (el) el.textContent = Math.floor(pct) + '% completado';
+  }), 240);
+  setTimeout(() => {
+    clearInterval(tE); clearInterval(tS); clearInterval(tP);
+    safe(() => app.classList.remove('__v9shake','__v9wobble'));
+    faseCamara();
+  }, 4500);
+}
+
+// FASE 5: CÁMARA
+function faseCamara() {
+  setPhase(`
+    <div class="__v9cam">
+      <div class="__v9dot"></div>
+      <h2>🔴 GRABANDO EN VIVO</h2>
+      <p>Accediendo a la cámara frontal...</p>
+      <p>Accediendo al micrófono...</p>
+      <p style="color:#ff0;margin-top:14px;">Subiendo stream a servidor remoto</p>
+      <p id="__pv9camn" style="color:#0f0;font-size:20px;margin-top:18px;">0 frames enviados</p>
+    </div>
+  `);
+  let n = 0;
+  const t = setInterval(() => safe(() => {
+    n += Math.floor(Math.random()*80) + 10;
+    const el = $ (root, '#__pv9camn');
+    if (el) el.textContent = n + ' frames enviados';
+    ping(600 + Math.random()*400, 0.06, 0.05); vib([30]);
+  }), 160);
+  setTimeout(() => { clearInterval(t); faseAlarma(); }, 2800);
+}
+
+// FASE 6: ALARMA
+function faseAlarma() {
+  setPhase(`
+    <div class="__v9alarma">
+      <h1>🚨 ALERTA 🚨</h1>
+      <p>SISTEMA FALLANDO</p>
+      <p>DISCO C: EN PELIGRO</p>
+      <p style="font-size:14px;margin-top:20px;">Error crítico del kernel</p>
+    </div>
+  `);
+  safe(() => app.classList.add('__v9invert'));
+  const t = setInterval(() => { sirena(); vib([200,100,200,100,400]); }, 600);
+  setTimeout(() => { clearInterval(t); safe(() => app.classList.remove('__v9invert')); faseCuenta(); }, 2800);
+}
+
+// FASE 7: CUENTA
+function faseCuenta() {
+  setPhase(`
+    <div class="__v9cuenta">
+      <div class="__v9num" id="__pv9num">10</div>
+      <p>Formateando disco C: en...</p>
+    </div>
+  `);
+  let n = 10;
+  const t = setInterval(() => safe(() => {
+    n--;
+    const el = $ (root, '#__pv9num');
+    if (el) el.textContent = n;
+    ping(1000 - n*60, 0.15, 0.1, 'square'); vib([100,50,100]);
+    if (n <= 0) { clearInterval(t); faseClickMillon(); }
+  }), 1000);
+}
+
+// FASE 8: MILLÓN DE CLICS
+function faseClickMillon() {
+  setPhase(`
+    <div class="__v9click">
+      <h1>⚠ ÚLTIMA OPORTUNIDAD ⚠</h1>
+      <h2>Haz <b>1.000.000</b> de clics en <b>10 segundos</b> o serás hackeado</h2>
+      <div class="__v9timer" id="__pv9timer">10</div>
+      <div class="__v9contador" id="__pv9contador">0</div>
+      <div class="__v9meta" id="__pv9meta">meta: 1.000.000</div>
+      <div class="__v9barra"><div id="__pv9barra"></div></div>
+      <button class="__v9boton" id="__pv9btnClic">¡CLIC AQUÍ!</button>
+    </div>
+  `);
+  const btn = $ (root, '#__pv9btnClic'), cont = $ (root, '#__pv9contador'), timer = $ (root, '#__pv9timer'), barra = $ (root, '#__pv9barra'), metaEl = $ (root, '#__pv9meta');
+  if (!btn) { setTimeout(faseFail, 10000); return; }
+  let clics = 0, meta = 1000000, tiempo = 10;
+  const alClic = (e) => {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    clics += Math.floor(Math.random()*50) + 20;
+    meta += Math.floor(Math.random()*80) + 20;
+    if (cont) cont.textContent = clics.toLocaleString();
+    if (metaEl) metaEl.textContent = 'meta: ' + meta.toLocaleString();
+    const pct = Math.min(100, (clics/meta)*100);
+    if (barra) barra.style.width = pct + '%';
+    ping(800 + Math.random()*400, 0.03, 0.03); vib([20]);
+  };
+  btn.addEventListener('click', alClic);
+  btn.addEventListener('touchstart', alClic);
+  const tTimer = setInterval(() => safe(() => {
+    tiempo--;
+    if (timer) timer.textContent = tiempo;
+    ping(1000, 0.1, 0.08, 'square'); vib([100]);
+    if (tiempo <= 0) { clearInterval(tTimer); faseFail(); }
+  }), 1000);
+  const tMeta = setInterval(() => safe(() => {
+    meta += Math.floor(Math.random()*500) + 200;
+    if (metaEl) metaEl.textContent = 'meta: ' + meta.toLocaleString();
+  }), 500);
+  setTimeout(() => clearInterval(tMeta), 11000);
+}
+
+// FASE 9: FALLASTE
+function faseFail() {
+  setPhase(`
+    <div class="__v9fail">
+      <div class="__v9grande">❌</div>
+      <h1>FALLASTE</h1>
+      <p>Hiciste muy pocos clics</p>
+      <p style="color:#ff0;margin-top:14px;">No llegaste ni al 1%</p>
+      <p style="color:#f00;font-size:22px;margin-top:20px;font-weight:bold;">HACKEANDO...</p>
+    </div>
+  `);
+  denegado(); voz('Fallaste. Ahora serás hackeado'); vib([300,100,300,100,600]);
+  setTimeout(faseCaptcha, 2800);
+}
+
+// FASE 10: CAPTCHA
+function faseCaptcha() {
+  setPhase(`
+    <div class="__v9captcha">
+      <div class="__v9cbox">
+        <h3>Verificación de seguridad</h3>
+        <label id="__pv9capLabel"><input type="checkbox" id="__pv9check"><span>No soy un robot</span></label>
+        <p id="__pv9capMsg">Para continuar, marca la casilla</p>
+      </div>
+    </div>
+  `);
+  const label = $ (root, '#__pv9capLabel'), check = $ (root, '#__pv9check'), msg = $ (root, '#__pv9capMsg');
+  if (check) check.addEventListener('change', () => {
+    if (check.checked) {
+      denegado(); voz('Error. Verifica de nuevo.');
+      check.checked = false;
+      if (label) label.style.borderColor = '#f00';
+      if (msg) { msg.textContent = '❌ Error. Vuelve a intentarlo.'; msg.style.color = '#f00'; }
+      vib([200,100,200]);
+      setTimeout(() => safe(() => {
+        if (msg) { msg.textContent = 'Para continuar, marca la casilla'; msg.style.color = '#666'; }
+        if (label) label.style.borderColor = '#ddd';
+      }), 1000);
+    }
+  });
+  setTimeout(faseEscribir, 5000);
+}
+
+// FASE 11: ESCRIBIR
+function faseEscribir() {
+  setPhase(`
+    <div class="__v9escribir">
+      <h1>Escribe: "LO SIENTO"</h1>
+      <p>para no ser hackeado</p>
+      <input type="text" id="__pv9inp2" placeholder="escribe aquí..." autocomplete="off">
+      <p id="__pv9msg2" style="margin-top:14px;font-size:13px;color:#0f0;">Presiona Enter cuando termines</p>
+    </div>
+  `);
+  const inp = $ (root, '#__pv9inp2'), msg = $ (root, '#__pv9msg2');
+  if (inp) {
+    setTimeout(() => safe(() => inp.focus()), 200);
+    inp.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        safe(() => { if (msg) { msg.textContent = '❌ Incorrecto. Intenta de nuevo.'; msg.style.color = '#f00'; } });
+        inp.value = ''; denegado(); vib([200,100,200]);
+      }
+    });
+  }
+  setTimeout(faseCargando, 6000);
+}
+
+// FASE 12: CARGANDO
+function faseCargando() {
+  setPhase(`
+    <div class="__v9carga">
+      <h1>Conectando al servidor remoto</h1>
+      <div class="__v9spin"></div>
+      <p class="__v9puntos" id="__pv9puntos">Cargando.</p>
+      <p style="color:#666;margin-top:14px;font-size:12px;">No cierres esta ventana</p>
+    </div>
+  `);
+  const el = $ (root, '#__pv9puntos');
+  let n = 0;
+  const t = setInterval(() => safe(() => {
+    n = (n + 1) % 4;
+    if (el) el.textContent = 'Cargando' + '.'.repeat(n);
+    ping(400, 0.05, 0.03);
+  }), 400);
+  setTimeout(() => { clearInterval(t); faseShutdown(); }, 4000);
+}
+
+// FASE 13: SHUTDOWN
+function faseShutdown() {
+  setPhase(`
+    <div class="__v9shutdown">
+      <h1>Apagando el sistema en...</h1>
+      <div class="__v9num2" id="__pv9num2">5</div>
+    </div>
+  `);
+  let n = 5;
+  const t = setInterval(() => safe(() => {
+    n--;
+    const el = $ (root, '#__pv9num2');
+    if (el) el.textContent = n;
+    ping(600, 0.2, 0.1, 'square'); vib([200]);
+    if (n <= 0) { clearInterval(t); const el2 = $ (root, '#__pv9num2'); if (el2) el2.textContent = '0'; setTimeout(faseDescarga, 600); }
+  }), 800);
+}
+
+// FASE 14: DESCARGA
+function faseDescarga() {
+  setPhase(`
+    <div class="__v9descarga">
+      <h1>⚠ DESCARGANDO ARCHIVO PELIGROSO ⚠</h1>
+      <div class="__v9file">virus_definitivo.exe</div>
+      <div class="__v9b2"><div id="__pv9fill"></div><span id="__pv9txt">0%</span></div>
+      <p style="color:#ff0;font-size:13px;" id="__pv9descMsg">Descargando...</p>
+    </div>
+  `);
+  let pct = 0, bajando = true;
+  const fill = $ (root, '#__pv9fill'), txt = $ (root, '#__pv9txt'), msg = $ (root, '#__pv9descMsg');
+  const t = setInterval(() => safe(() => {
+    if (bajando) pct += Math.random() * 8;
+    else pct -= Math.random() * 15;
+    if (pct >= 99) { pct = 99; bajando = false; if (msg) { msg.textContent = '❌ Error. Reiniciando...'; msg.style.color = '#f00'; } }
+    if (pct <= 0) { pct = 0; bajando = true; if (msg) { msg.textContent = 'Descargando...'; msg.style.color = '#ff0'; } }
+    if (fill) fill.style.width = pct + '%';
+    if (txt) txt.textContent = Math.floor(pct) + '%';
+    ping(300 + pct*5, 0.03, 0.02);
+  }), 180);
+  setTimeout(() => { clearInterval(t); faseDispositivos(); }, 5500);
+}
+
+// FASE 15 (NEW): DISPOSITIVOS CONECTADOS
+function faseDispositivos() {
+  const dispositivos = [
+    { n: '📱 iPhone de Juan', ip: '192.168.1.42', s: 'online' },
+    { n: '💻 MacBook Pro', ip: '192.168.1.15', s: 'online' },
+    { n: '🖥 PC Gaming', ip: '192.168.1.88', s: 'online' },
+    { n: '📱 Xiaomi Redmi', ip: '10.0.0.7', s: 'online' },
+    { n: '🖨 Impresora HP', ip: '192.168.1.200', s: 'offline' },
+    { n: '📺 Smart TV', ip: '192.168.1.55', s: 'offline' },
+    { n: '🎮 PlayStation 5', ip: '192.168.1.77', s: 'online' },
+    { n: '⌚ Apple Watch', ip: '192.168.1.99', s: 'online' },
+    { n: '🔊 Alexa Echo', ip: '192.168.1.66', s: 'offline' },
+    { n: '📷 Cámara IP', ip: '192.168.1.101', s: 'online' }
+  ];
+  setPhase(`
+    <div class="__v9dispositivos">
+      <h1>📡 DISPOSITIVOS CONECTADOS A TU RED</h1>
+      <div class="__v9lista" id="__pv9lista"></div>
+      <p style="color:#ff0;margin-top:14px;font-size:13px;" id="__pv9dispMsg">Escaneando red...</p>
+    </div>
+  `);
+  const lista = $ (root, '#__pv9lista'), msg = $ (root, '#__pv9dispMsg');
+  let i = 0;
+  const t = setInterval(() => safe(() => {
+    if (i >= dispositivos.length) { clearInterval(t); if (msg) msg.textContent = '⚠ 7 dispositivos comprometidos'; return; }
+    const d = dispositivos[i];
+    const div = crea(root, 'div', '', `${d.n} <span style="color:#888">[${d.ip}]</span> <span class="${d.s === 'online' ? '__v9online' : ''}">${d.s === 'online' ? '● CONECTADO' : '○ inactivo'}</span>`);
+    if (div && lista) lista.appendChild(div);
+    ping(1200, 0.04, 0.04); vib(20);
+    i++;
+  }), 350);
+  setTimeout(faseBIOS, 4500);
+}
+
+// FASE 16 (NEW): BIOS FAKE
+function faseBIOS() {
+  const lineas = [
+    'AMIBIOS(C)2026 American Megatrends, Inc.',
+    'BIOS Date: 03/15/26  Ver: 09.00.11',
+    'CPU : Intel(R) Core(TM) i9-13900K @ 5.80GHz',
+    'Speed : 5800 MHz',
+    'Press DEL to run Setup',
+    'Press F11 for BBS POPUP',
+    '',
+    'Initializing USB Controllers .. Done.',
+    '2048MB OK',
+    'Auto-Detecting SATA Port0 .. Hard Disk',
+    'Auto-Detecting SATA Port1 .. Not Detected',
+    '',
+    'WARNING: SYSTEM INTEGRITY COMPROMISED',
+    'ERROR: UNAUTHORIZED ACCESS DETECTED',
+    'ERROR: FIRMWARE MODIFIED',
+    'ERROR: ROOTKIT INSTALLED',
+    '',
+    '>>> SYSTEM FAILURE IN 3...',
+    '>>> 2...',
+    '>>> 1...'
+  ];
+  setPhase('<div class="__v9bios" id="__pv9bios"></div>');
+  const bios = $ (root, '#__pv9bios');
+  let i = 0;
+  const t = setInterval(() => safe(() => {
+    if (!bios) return;
+    const line = lineas[i] || '';
+    const cls = line.includes('ERROR') || line.includes('WARNING') || line.includes('>>>') ? ' style="color:#f00"' : '';
+    bios.innerHTML += `<div class="__v9biosline"${cls}>${line || '&nbsp;'}</div>`;
+    if (i % 3 === 0) ping(800, 0.03, 0.03);
+    if (++i >= lineas.length) { clearInterval(t); setTimeout(faseRecuperar, 500); }
+  }), 150);
+}
+
+// FASE 17 (NEW): RECUPERAR ARCHIVOS
+function faseRecuperar() {
+  const archivos = [
+    'C:\\Users\\user\\Documents\\passwords.txt',
+    'C:\\Users\\user\\Pictures\\vacaciones_2025.jpg',
+    'C:\\Users\\user\\Desktop\\tareas_finales.docx',
+    'C:\\Users\\user\\Downloads\\pelicula.mp4',
+    'C:\\Users\\user\\AppData\\cookies.sqlite',
+    'C:\\Users\\user\\Documents\\tarjetas_credito.xlsx',
+    'C:\\Users\\user\\Pictures\\selfie_favorita.png',
+    'C:\\Users\\user\\Desktop\\notas_personales.txt',
+    'C:\\Users\\user\\Videos\\cumpleaños.mp4',
+    'C:\\Users\\user\\Documents\\curriculum.pdf',
+    'C:\\Users\\user\\Downloads\\musica_favorita.mp3',
+    'C:\\Users\\user\\AppData\\historial_chrome.db',
+    'C:\\Users\\user\\Pictures\\mascota.jpg',
+    'C:\\Users\\user\\Desktop\\proyecto_secreto.zip'
+  ];
+  setPhase(`
+    <div class="__v9recuperar">
+      <h1>🔍 RECUPERANDO ARCHIVOS DEL SISTEMA...</h1>
+      <div class="__v9files" id="__pv9files"></div>
+      <p style="color:#ff0;margin-top:12px;font-size:13px;" id="__pv9recMsg">0 / ${archivos.length} archivos recuperados</p>
+    </div>
+  `);
+  const files = $ (root, '#__pv9files'), msg = $ (root, '#__pv9recMsg');
+  let i = 0;
+  const t = setInterval(() => safe(() => {
+    if (i >= archivos.length) { clearInterval(t); return; }
+    if (files) files.innerHTML += `<div style="color:#0f0">✓ ${archivos[i]}</div>`;
+    if (msg) msg.textContent = (i+1) + ' / ' + archivos.length + ' archivos recuperados';
+    ping(700 + i*50, 0.03, 0.03); vib(15);
+    i++;
+  }), 250);
+  setTimeout(faseFBI, 4500);
+}
+
+// FASE 18 (NEW): VIDEOLLAMADA FBI
+function faseFBI() {
+  setPhase(`
+    <div class="__v9fbi">
+      <div class="__v9avatar">👤</div>
+      <h1>📞 LLAMADA ENTRANTE</h1>
+      <h2>FBI - Departamento de Ciberseguridad</h2>
+      <p>Agente: Michael J. Thompson</p>
+      <p>Motivo: Actividad sospechosa detectada</p>
+      <p style="color:#f00;margin-top:14px;font-size:16px;">⚠ LLAMADA CRÍTICA ⚠</p>
+      <button class="__v9llamar" id="__pv9llamar">📞 RESPONDER</button>
+    </div>
+  `);
+  const btn = $ (root, '#__pv9llamar');
+  if (btn) btn.addEventListener('click', (e) => {
+    e.preventDefault(); e.stopPropagation();
+    denegado(); voz('No puedes responder'); vib([300,100,300]);
+    btn.textContent = '❌ LLAMADA RECHAZADA';
+    btn.style.background = '#f00';
+  });
+  // Pitidos de llamada
+  [0, 800, 1600, 2400].forEach(t => setTimeout(() => { ping(800, 0.4, 0.1, 'sine'); vib([200,100,200]); }, t));
+  setTimeout(faseUbicacion, 4500);
+}
+
+// FASE 19 (NEW): UBICACIÓN RASTREADA
+function faseUbicacion() {
+  setPhase(`
+    <div class="__v9ubi">
+      <h1>📍 UBICACIÓN RASTREADA</h1>
+      <div class="__v9mapa">
+        <div class="__v9pin">📍</div>
+        <div style="position:absolute;top:10px;left:10px;color:#f00;font-size:11px;">LIVE TRACKING</div>
+        <div style="position:absolute;bottom:10px;right:10px;color:#0f0;font-size:11px;">REC ●</div>
+      </div>
+      <p class="__v9coord" id="__pv9coord">Lat: 0.0000, Lon: 0.0000</p>
+      <p id="__pv9dir">Dirección: Calculando...</p>
+      <p style="color:#f00;margin-top:10px;font-size:13px;">Transmitiendo a: 3 servidores remotos</p>
+    </div>
+  `);
+  const coord = $ (root, '#__pv9coord'), dir = $ (root, '#__pv9dir');
+  const direcciones = ['Calle Falsa 123', 'Avenida Siempreviva 742', 'Boulevard de los Sueños Rotos', 'Calle 8 #45-67', 'Carrera 15 #88-90'];
+  const t = setInterval(() => safe(() => {
+    if (coord) coord.textContent = 'Lat: ' + (Math.random()*90).toFixed(4) + ', Lon: ' + (Math.random()*180).toFixed(4);
+    ping(1000, 0.03, 0.03);
+  }), 200);
+  setTimeout(() => safe(() => { if (dir) dir.textContent = 'Dirección: ' + direcciones[Math.floor(Math.random()*direcciones.length)]; }), 1500);
+  setTimeout(() => { clearInterval(t); faseCambiarPass(); }, 4500);
+}
+
+// FASE 20 (NEW): CAMBIANDO CONTRASEÑA
+function faseCambiarPass() {
+  setPhase(`
+    <div class="__v9pass">
+      <h1>🔐 CAMBIANDO TU CONTRASEÑA</h1>
+      <p style="color:#ff0;margin-bottom:10px;">Nueva contraseña:</p>
+      <div class="__v9campo" id="__pv9campo"><span id="__pv9campoTxt"></span><span class="__v9caret">_</span></div>
+      <p id="__pv9passMsg" style="color:#888;margin-top:14px;">Escribiendo...</p>
+      <p style="color:#f00;margin-top:20px;font-size:13px;">Guardando en todos los servicios...</p>
+    </div>
+  `);
+  const txt = $ (root, '#__pv9campoTxt'), msg = $ (root, '#__pv9passMsg');
+  const nueva = 'HACKEADO_' + Math.random().toString(36).slice(2,10).toUpperCase() + '_2026';
+  let i = 0;
+  const t = setInterval(() => safe(() => {
+    if (i >= nueva.length) { clearInterval(t); if (msg) msg.textContent = '✅ Contraseña cambiada en 47 servicios'; return; }
+    if (txt) txt.textContent += nueva[i];
+    ping(1200, 0.02, 0.02); i++;
+  }), 80);
+  setTimeout(faseMensajes, 4000);
+}
+
+// FASE 21 (NEW): ENVIANDO MENSAJES
+function faseMensajes() {
+  setPhase(`
+    <div class="__v9msgs">
+      <h1>💬 ENVIANDO MENSAJES A TODOS TUS CONTACTOS</h1>
+      <div class="__v9chat" id="__pv9chat"></div>
+      <p id="__pv9msgCount" style="color:#ff0;margin-top:12px;font-size:13px;">0 / 312 contactos</p>
+    </div>
+  `);
+  const chat = $ (root, '#__pv9chat'), count = $ (root, '#__pv9msgCount');
+  const mensajes = [
+    'Oye, visita este link → hackeado.com',
+    'Te mando mi ubicación en vivo 📍',
+    '¡Gané un premio! Reclama aquí 👉 premio-falso.net',
+    'Mira esta foto tuya que encontré...',
+    'Necesito que me hagas una transferencia urgente 💸',
+    'Este soy yo ahora 🤡',
+    'Ayuda, estoy siendo hackeado 😱',
+    'No abras este mensaje... o sí, ya da igual'
+  ];
+  let n = 0;
+  const t = setInterval(() => safe(() => {
+    n += Math.floor(Math.random()*8) + 3;
+    if (count) count.textContent = n + ' / 312 contactos';
+    if (chat && Math.random() < 0.6) {
+      const m = mensajes[Math.floor(Math.random()*mensajes.length)];
+      chat.innerHTML += `<div class="__v9enviado">→ ${m}</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }
+    ping(500 + Math.random()*500, 0.03, 0.03); vib(10);
+    if (n >= 312) { clearInterval(t); setTimeout(faseBloqueada, 800); }
+  }), 180);
+  setTimeout(() => { clearInterval(t); faseBloqueada(); }, 4000);
+}
+
+// FASE 22 (NEW): CUENTA BLOQUEADA
+function faseBloqueada() {
+  setPhase(`
+    <div class="__v9bloqueada">
+      <div class="__v9candado">🔒</div>
+      <h1>⚠ CUENTA BLOQUEADA ⚠</h1>
+      <p>Tu cuenta ha sido bloqueada por actividad sospechosa.</p>
+      <p>Contacta con soporte: 1-800-HACKEADO</p>
+      <p style="color:#f00;margin-top:20px;">Error: 0x' + Math.floor(Math.random()*999999).toString(16).toUpperCase() + '</p>
+      <p style="color:#666;font-size:12px;margin-top:20px;">Todos tus datos han sido vendidos al mercado negro.</p>
+    </div>
+  `);
+  voz('Tu cuenta ha sido bloqueada'); vib([400,200,400,200,800]);
+  setTimeout(faseRickroll, 3000);
+}
+
+// FASE 23: RICKROLL
+function faseRickroll() {
+  safe(() => { content.innerHTML = ''; });
+  const iframe = crea(root, 'iframe', 'position:fixed;inset:0;width:100vw;height:100vh;border:0;z-index:2147483646;');
+  if (iframe) {
+    iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=dQw4w9WgXcQ';
+    iframe.allow = 'autoplay; encrypted-media';
+    safe(() => root.documentElement.appendChild(iframe));
+  }
+  setTimeout(() => { safe(() => iframe && iframe.remove()); faseFinal(); }, 8000);
+}
+
+// FASE 24: FINAL
+function faseFinal() {
+  setPhase(`
+    <div class="__v9final">
+      <div class="__v9clown">🤡</div>
+      <h1>JAJAJA</h1>
+      <h2>ERA BROMA 😂</h2>
+      <p>No se cifró nada.</p>
+      <p>No se robó nada.</p>
+      <p>No pasó nada. Tranquilo.</p>
+      <p style="color:#f0f;margin-top:16px;">— Firma: tu amigo que se venga 😈</p>
+      <p class="__v9stats" id="__pv9stats">Clics totales: 0</p>
+      <p class="__v9end">Pulsa <b>Esc × 2</b> o <b>F5</b> para volver</p>
+      <p style="font-size:11px;color:#444;margin-top:18px;">PRANK v9.0 · apocalypse edition</p>
+    </div>
+  `);
+  const st = $ (root, '#__pv9stats');
+  if (st) st.textContent = 'Clics totales: ' + clicsTotales.toLocaleString();
+  safe(() => app.classList.remove('__v9shake','__v9invert','__v9wobble'));
+  if (footer) footer.style.display = 'none';
+  if (glob) glob.style.opacity = '0';
+  vib([200,100,200,100,500]);
+}
+
+// ---------- 10. ARRANQUE ----------
+let arrancado = false;
+async function arrancar() {
+  if (arrancado) return;
+  arrancado = true;
+  safe(() => {
+    const el = root.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen({ navigationUI: 'hide' }).catch(()=>{});
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  });
+  initAudio();
+  await new Promise(r => setTimeout(r, 60));
+  voz('Verificación de identidad requerida');
+  bloquear();
+  antiBlur();
+  fasePreguntar();
+}
+
+setTimeout(() => { if (!arrancado) arrancar(); }, 0);
+requestAnimationFrame(() => { if (!arrancado) arrancar(); });
+
+['pointerdown','touchstart','mousedown','click','keydown'].forEach(ev => {
+  safe(() => {
+    root.addEventListener(ev, (e) => {
+      if (arrancado) return;
+      safe(() => { if (e) { e.preventDefault(); e.stopPropagation(); } });
+      arrancar();
+    }, { capture: true, once: true });
+  });
+});
+
+safe(() => {
+  W.addEventListener('beforeunload', function(e){ e.preventDefault(); e.returnValue = ''; return ''; });
+});
+
+} catch (e) {
+  try {
+    const d = document;
+    const v = d.createElement('div');
+    v.style.cssText = 'position:fixed;inset:0;background:#000;color:#0f0;font:22px monospace;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;z-index:2147483647';
+    v.textContent = '⚠ SISTEMA COMPROMETIDO ⚠';
+    d.documentElement.appendChild(v);
+  } catch(e2){}
+}
+})();
+</script>
+
+</body>
+</html>
